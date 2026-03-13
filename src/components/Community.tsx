@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { photo1, photo2, photo3, photo4 } from '../image-data';
 
 export function Community() {
   const images = [
-    "/images/photo1.png", // The Wall
-    "/images/photo2.webp", // The Café
-    "/images/photo3.webp", // Community Events
-    "/images/photo4.png", // Pro Shop & Topos
+    photo1, // The Wall
+    photo2, // The Café
+    photo3, // Community Events
+    photo4, // Pro Shop & Topos
   ];
 
   return (

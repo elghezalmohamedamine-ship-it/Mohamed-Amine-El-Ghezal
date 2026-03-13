@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Instagram as InstagramIcon, Facebook } from 'lucide-react';
+import { photo5, photo6, photo7, photo8, photo9, photo10 } from '../image-data';
 
 export function Instagram() {
   const posts = [
-    "/images/photo5.webp",
-    "/images/photo6.webp",
-    "/images/photo7.webp",
-    "/images/photo8.webp",
-    "/images/photo9.webp",
-    "/images/photo10.jpg",
+    photo5,
+    photo6,
+    photo7,
+    photo8,
+    photo9,
+    photo10,
   ];
 
   return (
