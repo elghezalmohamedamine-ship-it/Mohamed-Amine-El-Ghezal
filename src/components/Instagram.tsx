@@ -4,12 +4,12 @@ import { Instagram as InstagramIcon, Facebook } from 'lucide-react';
 
 export function Instagram() {
   const posts = [
-    "/images/photo5.jpg.webp",
-    "/images/photo6.jpg.webp",
-    "/images/photo7.jpg.webp",
-    "/images/photo8.jpg.webp",
-    "/images/photo9.jpg.webp",
-    "/images/photo10.jpg.jpg",
+    "/images/photo5.webp",
+    "/images/photo6.webp",
+    "/images/photo7.webp",
+    "/images/photo8.webp",
+    "/images/photo9.webp",
+    "/images/photo10.jpg",
   ];
 
   return (
