@@ -4,12 +4,12 @@ import { Instagram as InstagramIcon, Facebook } from 'lucide-react';
 
 export function Instagram() {
   const posts = [
-    "/images/photo5.jpg.webp",
-    "/images/photo6.jpg.webp",
-    "/images/photo7.jpg.webp",
-    "/images/photo8.jpg.webp",
-    "/images/photo9.jpg.webp",
-    "/images/photo10.jpg.jpg",
+    "https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1522163182402-834f871fd851?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1504280390227-351a2d05f0af?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1525811902-f2342640856e?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1583468982228-19f19164aee2?q=80&w=1000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1578763353527-1153d10565cb?q=80&w=1000&auto=format&fit=crop",
   ];
 
   return (
