@@ -63,7 +63,7 @@ export function Instagram() {
               transition={{ delay: index * 0.1 }}
               className="aspect-square rounded-2xl overflow-hidden relative group block"
             >
-              <img src={post} alt={`Instagram post ${index + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img src={post} alt={`Instagram post ${index + 1}`} className="w-full h-full object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" />
             </motion.div>
           ))}
         </div>

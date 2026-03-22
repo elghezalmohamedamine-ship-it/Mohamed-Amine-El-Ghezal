@@ -6,7 +6,7 @@ export function Community() {
     '/images/photo1.webp', // The Wall
     '/images/photo2.webp', // The Café
     '/images/photo3.webp', // Community Events
-    '/images/photo4.webp', // Pro Shop & Topos
+    '/images/photo4.webp', // Kids/Community
   ];
 
   return (
@@ -37,10 +37,7 @@ export function Community() {
             transition={{ duration: 0.5 }}
             className="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group"
           >
-            <img src={images[0]} alt="Climber" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-              <span className="text-white font-display text-2xl tracking-wider">The Wall</span>
-            </div>
+            <img src={images[0]} alt="Climber" className="w-full h-full object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105" />
           </motion.div>
           
           <motion.div 
@@ -50,10 +47,7 @@ export function Community() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-3xl overflow-hidden relative group"
           >
-            <img src={images[1]} alt="Cafe" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-              <span className="text-white font-display text-xl tracking-wider">The Café</span>
-            </div>
+            <img src={images[1]} alt="Cafe" className="w-full h-full object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105" />
           </motion.div>
 
           <motion.div 
@@ -63,10 +57,7 @@ export function Community() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="rounded-3xl overflow-hidden relative group"
           >
-            <img src={images[2]} alt="Social" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-              <span className="text-white font-display text-xl tracking-wider">Community Events</span>
-            </div>
+            <img src={images[2]} alt="Social" className="w-full h-full object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105" />
           </motion.div>
           
           <motion.div 
@@ -76,10 +67,7 @@ export function Community() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="md:col-span-3 rounded-3xl overflow-hidden relative group h-[300px]"
           >
-            <img src={images[3]} alt="Gear" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-              <span className="text-white font-display text-2xl tracking-wider">Pro Shop & Topos</span>
-            </div>
+            <img src={images[3]} alt="Community" className="w-full h-full object-cover rounded-3xl transition-transform duration-700 group-hover:scale-105" />
           </motion.div>
         </div>
       </div>
