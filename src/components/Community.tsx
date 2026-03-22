@@ -3,10 +3,10 @@ import { motion } from 'motion/react';
 
 export function Community() {
   const images = [
-    'images/photo1.webp', // The Wall
-    'images/photo2.webp', // The Café
-    'images/photo3.webp', // Community Events
-    'images/photo4.webp', // Kids/Community
+    '/images/photo1.webp', // The Wall
+    '/images/photo2.webp', // The Café
+    '/images/photo3.webp', // Community Events
+    '/images/photo4.webp', // Kids/Community
   ];
 
   return (
