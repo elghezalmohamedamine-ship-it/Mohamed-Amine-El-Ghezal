@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { cn } from '../utils';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Experience() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-24 bg-climb-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -16,18 +19,18 @@ export function Experience() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl md:text-7xl text-climb-black mb-6">
-              WHAT IS <span className="text-climb-blue">BOULDERING?</span>
+              {t.experience.title1} <span className="text-climb-blue">{t.experience.title2}</span>
             </h2>
             <p className="text-xl text-climb-black/70 font-light mb-8 leading-relaxed">
-              Bouldering is climbing stripped down to its raw essentials. No ropes, no harnesses. Just you, the wall, and a thick safety mat below.
+              {t.experience.desc1}
             </p>
             <p className="text-lg text-climb-black/60 font-light mb-8 leading-relaxed">
-              It's about problem-solving, strength, and technique. Our walls feature routes (problems) designed for all skill levels, from absolute beginners to seasoned pros.
+              {t.experience.desc2}
             </p>
             
             <div className="flex items-center gap-4">
               <div className="w-12 h-1 bg-climb-red" />
-              <span className="text-climb-bordeaux font-display tracking-widest uppercase">Safe, Fun, Challenging</span>
+              <span className="text-climb-bordeaux font-display tracking-widest uppercase">{t.experience.tagline}</span>
             </div>
           </motion.div>
 
@@ -44,7 +47,7 @@ export function Experience() {
             
             {/* Safety Mat */}
             <div className="absolute bottom-0 left-0 right-0 h-24 bg-climb-blue/20 border-t-4 border-climb-blue flex items-center justify-center">
-              <span className="text-climb-blue font-display tracking-widest opacity-50">SAFETY MAT</span>
+              <span className="text-climb-blue font-display tracking-widest opacity-50">{t.experience.mat}</span>
             </div>
 
             {/* Interactive Holds */}

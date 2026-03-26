@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, MapPin, Phone, Clock, ChevronRight } from 'lucide-react';
+import { Menu, X, MapPin, Phone, Clock, ChevronRight, Globe } from 'lucide-react';
 import { cn } from '../utils';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +18,15 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Experience', href: '#experience' },
-    { name: 'Activities', href: '#activities' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'Community', href: '#community' },
+    { name: t.nav.experience, href: '#experience' },
+    { name: t.nav.activities, href: '#activities' },
+    { name: t.nav.pricing, href: '#pricing' },
+    { name: t.community.title2, href: '#community' },
   ];
+
+  const toggleLanguage = () => {
+    setLang(lang === 'fr' ? 'en' : 'fr');
+  };
 
   return (
     <motion.nav
@@ -49,21 +55,40 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-climb-yellow transition-all group-hover:w-full" />
             </a>
           ))}
+          
+          {/* Language Switcher */}
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-2 text-climb-white hover:text-climb-yellow transition-colors font-medium text-sm uppercase tracking-widest"
+          >
+            <Globe className="w-4 h-4" />
+            {lang.toUpperCase()}
+          </button>
+
           <a
             href="#booking"
             className="bg-climb-red text-climb-white px-6 py-2.5 rounded-sm font-display tracking-wider hover:bg-climb-bordeaux transition-colors transform hover:-translate-y-0.5 duration-200"
           >
-            BOOK NOW
+            {t.nav.book}
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-climb-white"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <button 
+            onClick={toggleLanguage}
+            className="flex items-center gap-1 text-climb-white hover:text-climb-yellow transition-colors font-medium text-sm uppercase tracking-widest"
+          >
+            <Globe className="w-4 h-4" />
+            {lang.toUpperCase()}
+          </button>
+          <button
+            className="text-climb-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
@@ -91,7 +116,7 @@ export function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="bg-climb-red text-climb-white px-6 py-3 rounded-sm font-display text-xl tracking-wider text-center mt-4"
               >
-                BOOK NOW
+                {t.nav.book}
               </a>
             </div>
           </motion.div>

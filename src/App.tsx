@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { LanguageProvider } from './i18n/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Experience } from './components/Experience';
@@ -18,21 +19,23 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="bg-climb-white min-h-screen font-body text-climb-black selection:bg-climb-red selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <Experience />
-        <Activities />
-        <Pricing />
-        <Community />
-        <Reviews />
-        <Booking />
-        <Location />
-        <Instagram />
-      </main>
-      <Footer />
-    </div>
+    <LanguageProvider>
+      <div className="bg-climb-white min-h-screen font-body text-climb-black selection:bg-climb-red selection:text-white">
+        <Navbar />
+        <main>
+          <Hero />
+          <Experience />
+          <Activities />
+          <Pricing />
+          <Community />
+          <Reviews />
+          <Booking />
+          <Location />
+          <Instagram />
+        </main>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 }
 

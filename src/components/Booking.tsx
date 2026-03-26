@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calendar as CalendarIcon, Users, ChevronRight, User, Mail, Phone } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Booking() {
+  const { t } = useLanguage();
   const [date, setDate] = useState('');
   const [type, setType] = useState('adult');
   const [shoeRental, setShoeRental] = useState(false);
@@ -126,23 +128,23 @@ export function Booking() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-7xl text-climb-white mb-6">
-              RÉSERVEZ VOTRE <span className="text-climb-yellow">SESSION</span>
+              {t.booking.title1} <span className="text-climb-yellow">{t.booking.title2}</span>
             </h2>
             <p className="text-xl text-climb-white/80 font-light mb-8 leading-relaxed">
-              Réservez votre place sur le mur. Que vous soyez un pro chevronné ou un débutant, nous avons une voie pour vous.
+              {t.booking.desc}
             </p>
             <ul className="space-y-4 mb-12">
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-yellow" />
-                <span>Confirmation instantanée</span>
+                <span>{t.booking.benefits[0]}</span>
               </li>
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-red" />
-                <span>Annulation gratuite jusqu'à 24h avant</span>
+                <span>{t.booking.benefits[1]}</span>
               </li>
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-white" />
-                <span>Location de matériel disponible sur place</span>
+                <span>{t.booking.benefits[2]}</span>
               </li>
             </ul>
           </motion.div>
@@ -160,9 +162,9 @@ export function Booking() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-3xl font-display text-climb-black mb-4">Réservation Envoyée !</h3>
+                <h3 className="text-3xl font-display text-climb-black mb-4">{t.booking.form.successTitle}</h3>
                 <p className="text-climb-black/60 mb-8">
-                  Merci {formData.firstName}. Nous avons bien reçu votre demande de réservation pour le {date}.
+                  {t.booking.form.successDesc1}{formData.firstName}{t.booking.form.successDesc2}{date}.
                 </p>
                 <button
                   onClick={() => {
@@ -173,7 +175,7 @@ export function Booking() {
                   }}
                   className="bg-climb-red text-white px-8 py-3 rounded-xl font-medium hover:bg-climb-bordeaux transition-colors"
                 >
-                  Nouvelle réservation
+                  {t.booking.form.newBooking}
                 </button>
               </div>
             ) : (
@@ -183,7 +185,7 @@ export function Booking() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Prénom
+                    {t.booking.form.firstName}
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -199,7 +201,7 @@ export function Booking() {
                 </div>
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Nom
+                    {t.booking.form.lastName}
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -218,7 +220,7 @@ export function Booking() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Email
+                    {t.booking.form.email}
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -234,7 +236,7 @@ export function Booking() {
                 </div>
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Numéro de téléphone
+                    {t.booking.form.phone}
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -253,7 +255,7 @@ export function Booking() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Date de naissance
+                    {t.booking.form.dob}
                   </label>
                   <div className="relative">
                     <CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -272,7 +274,7 @@ export function Booking() {
                 {/* Date Selection */}
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Date de la session
+                    {t.booking.form.sessionDate}
                   </label>
                   <div className="relative">
                     <CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -292,7 +294,7 @@ export function Booking() {
               {/* Entry Type */}
               <div>
                 <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                  Catégorie (Calculée automatiquement)
+                  {t.booking.form.category}
                 </label>
                 <div className="grid grid-cols-3 gap-4">
                   <div
@@ -302,7 +304,7 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Enfant (5-13)
+                    {t.booking.form.child}
                     <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                   <div
@@ -312,7 +314,7 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Ado (14-17)
+                    {t.booking.form.teen}
                     <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                   <div
@@ -322,7 +324,7 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Adulte (18+)
+                    {t.booking.form.adult}
                     <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                 </div>
@@ -331,7 +333,7 @@ export function Booking() {
               {/* Options */}
               <div>
                 <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                  Options supplémentaires
+                  {t.booking.form.options}
                 </label>
                 <label className="flex items-center justify-between p-4 rounded-xl border-2 border-climb-lightgrey bg-climb-lightgrey hover:border-climb-black/20 cursor-pointer transition-all">
                   <div className="flex items-center gap-3">
@@ -341,7 +343,7 @@ export function Booking() {
                       onChange={(e) => setShoeRental(e.target.checked)}
                       className="w-5 h-5 rounded text-climb-blue focus:ring-climb-blue border-gray-300"
                     />
-                    <span className="font-medium text-climb-black">Location de chaussons</span>
+                    <span className="font-medium text-climb-black">{t.booking.form.shoeRental}</span>
                   </div>
                   <span className="text-climb-black/60 font-medium">+5 DT</span>
                 </label>
@@ -350,7 +352,7 @@ export function Booking() {
               {/* Total & Submit */}
               <div className="pt-4 border-t border-climb-black/10">
                 <div className="flex justify-between items-end mb-4">
-                  <span className="text-climb-black/60 font-medium">Total estimé</span>
+                  <span className="text-climb-black/60 font-medium">{t.booking.form.total}</span>
                   <span className="text-3xl font-display text-climb-black">{totalPrice} DT</span>
                 </div>
                 <button 
@@ -358,7 +360,7 @@ export function Booking() {
                   disabled={isSubmitting}
                   className="w-full bg-climb-red text-climb-white py-4 rounded-xl font-display text-xl tracking-wider hover:bg-climb-bordeaux transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'TRAITEMENT...' : 'RÉSERVER MAINTENANT'}
+                  {isSubmitting ? t.booking.form.processing : t.booking.form.submit}
                   {!isSubmitting && <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />}
                 </button>
               </div>

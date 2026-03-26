@@ -1,24 +1,27 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Check } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Pricing() {
+  const { t } = useLanguage();
+
   const plans = [
     {
-      title: "Séance (sans limite de temps)",
-      price: "20",
-      period: "DT",
-      features: ["Accès illimité", "Accès à toutes les zones de bloc", "Vestiaires"],
+      title: t.pricing.plans[0].title,
+      price: t.pricing.plans[0].price,
+      period: t.pricing.plans[0].period,
+      features: t.pricing.plans[0].features,
       highlight: true,
       color: "bg-climb-red",
       textColor: "text-climb-white",
       buttonColor: "bg-climb-white text-climb-red hover:bg-climb-lightgrey",
     },
     {
-      title: "Location Chaussons",
-      price: "5",
-      period: "DT",
-      features: ["Chaussons d'escalade", "Toutes les tailles disponibles", "Désinfectés après chaque utilisation"],
+      title: t.pricing.plans[1].title,
+      price: t.pricing.plans[1].price,
+      period: t.pricing.plans[1].period,
+      features: t.pricing.plans[1].features,
       highlight: false,
       color: "bg-climb-white",
       textColor: "text-climb-black",
@@ -39,7 +42,7 @@ export function Pricing() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl text-climb-white mb-4"
           >
-            PRIX D'UNE <span className="text-climb-yellow">SÉANCE</span>
+            {t.pricing.title1} <span className="text-climb-yellow">{t.pricing.title2}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -48,7 +51,7 @@ export function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-xl text-climb-white/60 font-light"
           >
-            Sans limite de temps. Grimpez autant que vous voulez.
+            {t.pricing.desc}
           </motion.p>
         </div>
 
@@ -82,7 +85,7 @@ export function Pricing() {
                 href="#booking"
                 className={`w-full py-4 rounded-xl font-display tracking-wider text-lg transition-colors duration-300 flex justify-center items-center ${plan.buttonColor}`}
               >
-                GET STARTED
+                {t.pricing.getStarted}
               </a>
             </motion.div>
           ))}

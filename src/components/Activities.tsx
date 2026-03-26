@@ -1,30 +1,33 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Mountain, Users, Map } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Activities() {
+  const { t } = useLanguage();
+
   const activities = [
     {
-      title: "Indoor Bouldering",
-      description: "Artificial climbing walls designed for all skill levels. Challenge yourself with constantly updated routes.",
+      title: t.activities.items[0].title,
+      description: t.activities.items[0].desc,
       icon: <Mountain className="w-12 h-12 text-climb-blue" />,
       color: "bg-climb-blue/10",
       borderColor: "border-climb-blue/20",
       hoverBorder: "hover:border-climb-blue",
     },
     {
-      title: "Séance Encadrée (5-13 ans)",
-      description: "Classes for ages 5–13. Build confidence, strength, and problem-solving skills in a safe environment.",
-      schedule: ["Mercredi 14h-17h", "Samedi 14h-17h", "Dimanche 14h-17h"],
+      title: t.activities.items[1].title,
+      description: t.activities.items[1].desc,
+      schedule: t.activities.items[1].schedule,
       icon: <Users className="w-12 h-12 text-climb-yellow" />,
       color: "bg-climb-yellow/10",
       borderColor: "border-climb-yellow/20",
       hoverBorder: "hover:border-climb-yellow",
     },
     {
-      title: "Séance Initiation Adulte",
-      description: "Guided introduction to bouldering for adults. Learn the basics with our expert instructors.",
-      schedule: ["Mercredi 19h30-20h30"],
+      title: t.activities.items[2].title,
+      description: t.activities.items[2].desc,
+      schedule: t.activities.items[2].schedule,
       icon: <Map className="w-12 h-12 text-climb-red" />,
       color: "bg-climb-red/10",
       borderColor: "border-climb-red/20",
@@ -42,7 +45,7 @@ export function Activities() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl text-climb-black mb-4"
           >
-            OUR <span className="text-climb-red">ACTIVITIES</span>
+            {t.activities.title1} <span className="text-climb-red">{t.activities.title2}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +54,7 @@ export function Activities() {
             transition={{ delay: 0.1 }}
             className="text-xl text-climb-black/60 font-light"
           >
-            More than just a gym. A complete climbing experience.
+            {t.activities.desc}
           </motion.p>
         </div>
 
@@ -64,7 +67,7 @@ export function Activities() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               whileHover={{ y: -10 }}
-              className={`bg-climb-white p-8 rounded-2xl shadow-lg border-2 ${activity.borderColor} ${activity.hoverBorder} transition-all duration-300 group`}
+              className={`bg-climb-white p-8 rounded-2xl shadow-lg border-2 ${activity.borderColor} ${activity.hoverBorder} transition-all duration-300 group flex flex-col`}
             >
               <div className={`w-20 h-20 rounded-2xl ${activity.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300`}>
                 {activity.icon}
@@ -76,7 +79,7 @@ export function Activities() {
               
               {activity.schedule && (
                 <div className="mt-auto">
-                  <h4 className="text-sm font-display tracking-widest text-climb-black/50 mb-3 uppercase">Schedule</h4>
+                  <h4 className="text-sm font-display tracking-widest text-climb-black/50 mb-3 uppercase">{t.activities.schedule}</h4>
                   <div className="flex flex-wrap gap-2">
                     {activity.schedule.map(day => (
                       <span key={day} className="px-3 py-1 bg-climb-lightgrey text-climb-black text-sm rounded-full font-medium">

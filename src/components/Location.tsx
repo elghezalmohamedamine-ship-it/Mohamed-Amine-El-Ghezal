@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Clock } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Location() {
+  const { t } = useLanguage();
+
   return (
     <section id="location" className="py-24 bg-climb-white relative">
       <div className="max-w-7xl mx-auto px-6">
@@ -36,7 +39,7 @@ export function Location() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-5xl md:text-7xl text-climb-black mb-12">
-              FIND <span className="text-climb-red">US</span>
+              {t.location.title1} <span className="text-climb-red">{t.location.title2}</span>
             </h2>
 
             <div className="space-y-8">
@@ -45,7 +48,7 @@ export function Location() {
                   <MapPin className="w-6 h-6 text-climb-blue" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">ADDRESS</h3>
+                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">{t.location.address}</h3>
                   <a href="https://maps.app.goo.gl/mJuUHFGt86t4ZDn97" target="_blank" rel="noopener noreferrer" className="text-climb-black/70 font-light leading-relaxed hover:text-climb-black transition-colors block">
                     Climb'IN<br />
                     Rue Jaber Ibn Hayan<br />
@@ -61,7 +64,7 @@ export function Location() {
                   <Phone className="w-6 h-6 text-climb-yellow" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">PHONE</h3>
+                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">{t.location.phone}</h3>
                   <p className="text-climb-black/70 font-light text-lg">
                     31 210 201 - 23 727 427
                   </p>
@@ -73,11 +76,11 @@ export function Location() {
                   <Clock className="w-6 h-6 text-climb-red" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">OPENING HOURS</h3>
+                  <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">{t.location.hours}</h3>
                   <p className="text-climb-black/70 font-light text-lg">
-                    Mar-Ven: 16h-22h (Mer: 14h-22h)<br />
-                    Sam-Dim: 14h-20h<br />
-                    Lun: Fermé
+                    {t.location.hoursText[0]}<br />
+                    {t.location.hoursText[1]}<br />
+                    {t.location.hoursText[2]}
                   </p>
                 </div>
               </div>

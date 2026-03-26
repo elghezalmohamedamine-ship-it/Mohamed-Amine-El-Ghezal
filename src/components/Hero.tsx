@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Hero() {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 300]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const { t } = useLanguage();
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-climb-black flex items-center justify-center">
@@ -30,8 +32,8 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-6xl md:text-8xl lg:text-[10rem] text-climb-white leading-none mb-6 drop-shadow-2xl">
-            CLIMB <span className="text-climb-red">HIGHER</span><br />
-            CLIMB <span className="text-climb-yellow">TOGETHER</span>
+            {t.hero.title1} <span className="text-climb-red">{t.hero.title2}</span><br />
+            {t.hero.title3} <span className="text-climb-yellow">{t.hero.title4}</span>
           </h1>
         </motion.div>
 
@@ -42,10 +44,10 @@ export function Hero() {
           className="max-w-2xl mx-auto mb-12"
         >
           <p className="text-xl md:text-2xl text-climb-lightgrey font-light mb-2">
-            The first indoor climbing gym in Tunisia.
+            {t.hero.desc1}
           </p>
           <p className="text-lg md:text-xl text-climb-lightgrey/80 font-light">
-            A home for climbers, beginners, and adventurers.
+            {t.hero.desc2}
           </p>
         </motion.div>
 
@@ -59,14 +61,14 @@ export function Hero() {
             href="#experience"
             className="group flex items-center justify-center gap-2 bg-climb-red text-climb-white px-8 py-4 rounded-sm font-display text-xl tracking-wider hover:bg-climb-bordeaux transition-all duration-300"
           >
-            START CLIMBING
+            {t.hero.cta1}
             <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
           <a 
             href="#booking"
             className="group flex items-center justify-center gap-2 bg-transparent border-2 border-climb-white text-climb-white px-8 py-4 rounded-sm font-display text-xl tracking-wider hover:bg-climb-white hover:text-climb-black transition-all duration-300"
           >
-            BOOK A SESSION
+            {t.hero.cta2}
           </a>
         </motion.div>
       </div>

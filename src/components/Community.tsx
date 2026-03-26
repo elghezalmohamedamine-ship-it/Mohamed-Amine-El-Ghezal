@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Community() {
+  const { t } = useLanguage();
+
   const images = [
     'images/photo1.webp', // The Wall
     'images/photo2.webp', // The Café
@@ -20,10 +23,10 @@ export function Community() {
             className="max-w-2xl"
           >
             <h2 className="text-5xl md:text-7xl text-climb-black mb-6">
-              THE <span className="text-climb-blue">COMMUNITY</span> HUB
+              {t.community.title1} <span className="text-climb-blue">{t.community.title2}</span> {t.community.title3}
             </h2>
             <p className="text-xl text-climb-black/70 font-light leading-relaxed">
-              Climb'IN is more than a gym. It's a place to hang out, grab a coffee, meet fellow climbers, and plan your next outdoor adventure.
+              {t.community.desc}
             </p>
           </motion.div>
         </div>

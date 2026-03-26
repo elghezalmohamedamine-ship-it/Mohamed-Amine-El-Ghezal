@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Instagram as InstagramIcon, Facebook } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Instagram() {
+  const { t } = useLanguage();
+
   const posts = [
     'images/photo5.webp',
     'images/photo6.webp',
@@ -22,7 +25,7 @@ export function Instagram() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl text-climb-black mb-4"
           >
-            JOIN THE <span className="text-climb-blue">COMMUNITY</span>
+            {t.instagram.title1} <span className="text-climb-blue">{t.instagram.title2}</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -31,7 +34,7 @@ export function Instagram() {
             transition={{ delay: 0.1 }}
             className="text-xl text-climb-black/60 font-light mb-8"
           >
-            Follow us for the latest routes, events, and climbing tips.
+            {t.instagram.description}
           </motion.p>
           
           <motion.div 
@@ -43,11 +46,11 @@ export function Instagram() {
           >
             <a href="https://www.instagram.com/climb.in/?hl=en" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-8 py-4 rounded-xl font-display tracking-wider hover:opacity-90 transition-opacity">
               <InstagramIcon className="w-6 h-6" />
-              FOLLOW ON INSTAGRAM
+              {t.instagram.followInstagram}
             </a>
             <a href="https://www.facebook.com/ClimbInTunisia/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 bg-[#1877F2] text-white px-8 py-4 rounded-xl font-display tracking-wider hover:bg-[#1877F2]/90 transition-colors">
               <Facebook className="w-6 h-6" />
-              FOLLOW ON FACEBOOK
+              {t.instagram.followFacebook}
             </a>
           </motion.div>
         </div>

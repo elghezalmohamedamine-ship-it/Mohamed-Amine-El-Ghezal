@@ -1,22 +1,25 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export function Reviews() {
+  const { t } = useLanguage();
+
   const reviews = [
     {
-      name: "Amine K.",
-      text: "Best climbing gym in Tunisia. Incredible atmosphere and routes. The community here is unmatched.",
+      name: t.reviews.items[0].name,
+      text: t.reviews.items[0].text,
       rating: 5,
     },
     {
-      name: "Sarah M.",
-      text: "Perfect for beginners and pros alike. The staff is super helpful and the coffee is great!",
+      name: t.reviews.items[1].name,
+      text: t.reviews.items[1].text,
       rating: 5,
     },
     {
-      name: "Youssef T.",
-      text: "A world-class facility right here in La Marsa. The route setting is creative and challenging.",
+      name: t.reviews.items[2].name,
+      text: t.reviews.items[2].text,
       rating: 5,
     }
   ];
@@ -31,7 +34,7 @@ export function Reviews() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-7xl text-climb-black mb-4">
-              CLIMBER <span className="text-climb-red">STORIES</span>
+              {t.reviews.title1} <span className="text-climb-red">{t.reviews.title2}</span>
             </h2>
             <div className="flex items-center gap-4">
               <div className="flex gap-1">
@@ -40,7 +43,7 @@ export function Reviews() {
                 ))}
               </div>
               <span className="text-2xl font-display text-climb-black">4.8 / 5</span>
-              <span className="text-climb-black/60 font-medium">from 176 reviews</span>
+              <span className="text-climb-black/60 font-medium">{t.reviews.from}</span>
             </div>
           </motion.div>
         </div>
