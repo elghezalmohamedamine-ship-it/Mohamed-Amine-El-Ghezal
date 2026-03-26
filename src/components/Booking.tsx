@@ -52,10 +52,10 @@ export function Booking() {
           age--;
         }
         
-        // Assuming adult is 18 and older, teen is 12-17, child is under 12
+        // Assuming adult is 18 and older, teen is 14-17, child is under 14
         if (age >= 18) {
           setType('adult');
-        } else if (age >= 12) {
+        } else if (age >= 14) {
           setType('teen');
         } else {
           setType('child');
@@ -67,12 +67,10 @@ export function Booking() {
   };
 
   const getBasePrice = () => {
-    if (type === 'child') return 12;
-    if (type === 'teen') return 15;
-    return 15; // adult
+    return 20; // All categories cost 20 DT
   };
 
-  const shoePrice = 3;
+  const shoePrice = 5;
   const totalPrice = getBasePrice() + (shoeRental ? shoePrice : 0);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -128,23 +126,23 @@ export function Booking() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-7xl text-climb-white mb-6">
-              BOOK YOUR <span className="text-climb-yellow">SESSION</span>
+              RÉSERVEZ VOTRE <span className="text-climb-yellow">SESSION</span>
             </h2>
             <p className="text-xl text-climb-white/80 font-light mb-8 leading-relaxed">
-              Secure your spot on the wall. Whether you're a seasoned pro or a first-timer, we've got a route for you.
+              Réservez votre place sur le mur. Que vous soyez un pro chevronné ou un débutant, nous avons une voie pour vous.
             </p>
             <ul className="space-y-4 mb-12">
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-yellow" />
-                <span>Instant confirmation</span>
+                <span>Confirmation instantanée</span>
               </li>
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-red" />
-                <span>Free cancellation up to 24h before</span>
+                <span>Annulation gratuite jusqu'à 24h avant</span>
               </li>
               <li className="flex items-center gap-3 text-climb-white/90">
                 <div className="w-2 h-2 rounded-full bg-climb-white" />
-                <span>Equipment rental available on site</span>
+                <span>Location de matériel disponible sur place</span>
               </li>
             </ul>
           </motion.div>
@@ -185,7 +183,7 @@ export function Booking() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    First Name
+                    Prénom
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -201,7 +199,7 @@ export function Booking() {
                 </div>
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Last Name
+                    Nom
                   </label>
                   <div className="relative">
                     <User className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -236,7 +234,7 @@ export function Booking() {
                 </div>
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Phone Number
+                    Numéro de téléphone
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -255,7 +253,7 @@ export function Booking() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Date of Birth
+                    Date de naissance
                   </label>
                   <div className="relative">
                     <CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -274,7 +272,7 @@ export function Booking() {
                 {/* Date Selection */}
                 <div>
                   <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                    Session Date
+                    Date de la session
                   </label>
                   <div className="relative">
                     <CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-climb-black/40 w-5 h-5" />
@@ -294,7 +292,7 @@ export function Booking() {
               {/* Entry Type */}
               <div>
                 <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                  Category (Auto-calculated)
+                  Catégorie (Calculée automatiquement)
                 </label>
                 <div className="grid grid-cols-3 gap-4">
                   <div
@@ -304,8 +302,8 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Child (Under 12)
-                    <div className="text-xs mt-1 opacity-70">12 DT</div>
+                    Enfant (5-13)
+                    <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                   <div
                     className={`py-3 px-2 rounded-xl border-2 font-medium transition-all text-center text-sm sm:text-base ${
@@ -314,8 +312,8 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Teen (12-17)
-                    <div className="text-xs mt-1 opacity-70">15 DT</div>
+                    Ado (14-17)
+                    <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                   <div
                     className={`py-3 px-2 rounded-xl border-2 font-medium transition-all text-center text-sm sm:text-base ${
@@ -324,8 +322,8 @@ export function Booking() {
                         : 'border-climb-lightgrey bg-climb-lightgrey text-climb-black/40'
                     }`}
                   >
-                    Adult (18+)
-                    <div className="text-xs mt-1 opacity-70">15 DT</div>
+                    Adulte (18+)
+                    <div className="text-xs mt-1 opacity-70">20 DT</div>
                   </div>
                 </div>
               </div>
@@ -333,7 +331,7 @@ export function Booking() {
               {/* Options */}
               <div>
                 <label className="block text-sm font-display tracking-widest text-climb-black/50 uppercase mb-2">
-                  Additional Options
+                  Options supplémentaires
                 </label>
                 <label className="flex items-center justify-between p-4 rounded-xl border-2 border-climb-lightgrey bg-climb-lightgrey hover:border-climb-black/20 cursor-pointer transition-all">
                   <div className="flex items-center gap-3">
@@ -343,16 +341,16 @@ export function Booking() {
                       onChange={(e) => setShoeRental(e.target.checked)}
                       className="w-5 h-5 rounded text-climb-blue focus:ring-climb-blue border-gray-300"
                     />
-                    <span className="font-medium text-climb-black">Shoe Rental</span>
+                    <span className="font-medium text-climb-black">Location de chaussons</span>
                   </div>
-                  <span className="text-climb-black/60 font-medium">+3 DT</span>
+                  <span className="text-climb-black/60 font-medium">+5 DT</span>
                 </label>
               </div>
 
               {/* Total & Submit */}
               <div className="pt-4 border-t border-climb-black/10">
                 <div className="flex justify-between items-end mb-4">
-                  <span className="text-climb-black/60 font-medium">Estimated Total</span>
+                  <span className="text-climb-black/60 font-medium">Total estimé</span>
                   <span className="text-3xl font-display text-climb-black">{totalPrice} DT</span>
                 </div>
                 <button 
@@ -360,7 +358,7 @@ export function Booking() {
                   disabled={isSubmitting}
                   className="w-full bg-climb-red text-climb-white py-4 rounded-xl font-display text-xl tracking-wider hover:bg-climb-bordeaux transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? 'PROCESSING...' : 'RESERVE NOW'}
+                  {isSubmitting ? 'TRAITEMENT...' : 'RÉSERVER MAINTENANT'}
                   {!isSubmitting && <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />}
                 </button>
               </div>

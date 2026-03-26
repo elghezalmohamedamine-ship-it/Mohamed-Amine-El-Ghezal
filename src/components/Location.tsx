@@ -46,13 +46,13 @@ export function Location() {
                 </div>
                 <div>
                   <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">ADDRESS</h3>
-                  <p className="text-climb-black/70 font-light leading-relaxed">
+                  <a href="https://maps.app.goo.gl/mJuUHFGt86t4ZDn97" target="_blank" rel="noopener noreferrer" className="text-climb-black/70 font-light leading-relaxed hover:text-climb-black transition-colors block">
                     Climb'IN<br />
                     Rue Jaber Ibn Hayan<br />
                     Bhar Lazreg<br />
                     La Marsa 2046<br />
                     Tunisia
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -63,7 +63,7 @@ export function Location() {
                 <div>
                   <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">PHONE</h3>
                   <p className="text-climb-black/70 font-light text-lg">
-                    +216 23 727 427
+                    31 210 201 - 23 727 427
                   </p>
                 </div>
               </div>
@@ -75,7 +75,9 @@ export function Location() {
                 <div>
                   <h3 className="text-xl font-display tracking-wider mb-2 text-climb-black">OPENING HOURS</h3>
                   <p className="text-climb-black/70 font-light text-lg">
-                    Opens at 14:00
+                    Mar-Ven: 16h-22h (Mer: 14h-22h)<br />
+                    Sam-Dim: 14h-20h<br />
+                    Lun: Fermé
                   </p>
                 </div>
               </div>

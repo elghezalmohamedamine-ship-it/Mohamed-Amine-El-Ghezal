@@ -5,30 +5,20 @@ import { Check } from 'lucide-react';
 export function Pricing() {
   const plans = [
     {
-      title: "Adult Entry",
-      price: "15",
+      title: "Séance (sans limite de temps)",
+      price: "20",
       period: "DT",
-      features: ["Unlimited time", "Access to all bouldering areas", "Free chalk", "Locker access"],
+      features: ["Accès illimité", "Accès à toutes les zones de bloc", "Vestiaires"],
       highlight: true,
       color: "bg-climb-red",
       textColor: "text-climb-white",
       buttonColor: "bg-climb-white text-climb-red hover:bg-climb-lightgrey",
     },
     {
-      title: "Kids Entry",
-      price: "12",
+      title: "Location Chaussons",
+      price: "5",
       period: "DT",
-      features: ["Unlimited time", "Access to kids area", "Supervised environment", "Locker access"],
-      highlight: false,
-      color: "bg-climb-yellow",
-      textColor: "text-climb-black",
-      buttonColor: "bg-climb-blue text-climb-white hover:bg-climb-blue/90",
-    },
-    {
-      title: "Shoe Rental",
-      price: "3",
-      period: "DT",
-      features: ["High-quality climbing shoes", "All sizes available", "Sanitized after each use"],
+      features: ["Chaussons d'escalade", "Toutes les tailles disponibles", "Désinfectés après chaque utilisation"],
       highlight: false,
       color: "bg-climb-white",
       textColor: "text-climb-black",
@@ -49,7 +39,7 @@ export function Pricing() {
             viewport={{ once: true }}
             className="text-5xl md:text-7xl text-climb-white mb-4"
           >
-            SIMPLE <span className="text-climb-yellow">PRICING</span>
+            PRIX D'UNE <span className="text-climb-yellow">SÉANCE</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -58,11 +48,11 @@ export function Pricing() {
             transition={{ delay: 0.1 }}
             className="text-xl text-climb-white/60 font-light"
           >
-            No time limit. Climb as long as you want.
+            Sans limite de temps. Grimpez autant que vous voulez.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={index}

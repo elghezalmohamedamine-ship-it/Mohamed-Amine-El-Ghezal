@@ -47,11 +47,13 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-climb-red shrink-0 mt-0.5" />
-                <span className="text-climb-white/60 font-light">Rue Jaber Ibn Hayan, Bhar Lazreg, La Marsa 2046, Tunisia</span>
+                <a href="https://maps.app.goo.gl/mJuUHFGt86t4ZDn97" target="_blank" rel="noopener noreferrer" className="text-climb-white/60 font-light hover:text-climb-white transition-colors">
+                  Rue Jaber Ibn Hayan, Bhar Lazreg, La Marsa 2046, Tunisia
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-climb-blue shrink-0" />
-                <span className="text-climb-white/60 font-light">+216 23 727 427</span>
+                <span className="text-climb-white/60 font-light">31 210 201 - 23 727 427</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-climb-yellow shrink-0" />
@@ -65,16 +67,24 @@ export function Footer() {
             <h4 className="text-xl font-display text-climb-white tracking-wider mb-6">HOURS</h4>
             <ul className="space-y-4">
               <li className="flex justify-between items-center border-b border-climb-white/10 pb-2">
-                <span className="text-climb-white/60 font-light">Mon - Fri</span>
-                <span className="text-climb-white font-medium">14:00 - 22:00</span>
+                <span className="text-climb-white/60 font-light">Mardi</span>
+                <span className="text-climb-white font-medium">16h00 - 22h00</span>
               </li>
               <li className="flex justify-between items-center border-b border-climb-white/10 pb-2">
-                <span className="text-climb-white/60 font-light">Saturday</span>
-                <span className="text-climb-white font-medium">10:00 - 22:00</span>
+                <span className="text-climb-white/60 font-light">Mercredi</span>
+                <span className="text-climb-white font-medium">14h00 - 22h00</span>
+              </li>
+              <li className="flex justify-between items-center border-b border-climb-white/10 pb-2">
+                <span className="text-climb-white/60 font-light">Jeudi - Vendredi</span>
+                <span className="text-climb-white font-medium">16h00 - 22h00</span>
+              </li>
+              <li className="flex justify-between items-center border-b border-climb-white/10 pb-2">
+                <span className="text-climb-white/60 font-light">Samedi - Dimanche</span>
+                <span className="text-climb-white font-medium">14h00 - 20h00</span>
               </li>
               <li className="flex justify-between items-center pb-2">
-                <span className="text-climb-white/60 font-light">Sunday</span>
-                <span className="text-climb-white font-medium">10:00 - 20:00</span>
+                <span className="text-climb-white/60 font-light">Lundi</span>
+                <span className="text-climb-white font-medium text-climb-red">Fermé</span>
               </li>
             </ul>
           </div>
