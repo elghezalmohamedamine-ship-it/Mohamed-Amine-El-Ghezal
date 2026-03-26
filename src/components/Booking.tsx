@@ -79,7 +79,13 @@ export function Booking() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Generate a unique ID for the client/booking to be used as a primary key in Supabase
+    const id_clients = typeof crypto !== 'undefined' && crypto.randomUUID 
+      ? crypto.randomUUID() 
+      : `client_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
     const payload = {
+      id_clients,
       ...formData,
       sessionDate: date,
       entryType: type,
@@ -92,14 +98,15 @@ export function Booking() {
 
     try {
       if (webhookUrl) {
+        console.log("🚀 Envoi des données au webhook Make.com :", payload);
         await fetch(webhookUrl, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify(payload),
         });
+        console.log("✅ Données envoyées avec succès !");
       } else {
         // Simulation si l'URL n'est pas encore configurée
         await new Promise(resolve => setTimeout(resolve, 1500));
